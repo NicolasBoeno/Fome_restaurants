@@ -11,7 +11,7 @@ def exibir_nome_do_programa():
 ▒█▀▀▀ █░░█ █░▀░█ █▀▀ 　 ▒█▄▄▀ █▀▀ ▀▀█ ░░█░░ █▄▄█ █░░█ █▄▄▀ █▄▄█ █░░█ ░░█░░ █▀▀ ▀▀█ 
 ▒█░░░ ▀▀▀▀ ▀░░░▀ ▀▀▀ 　 ▒█░▒█ ▀▀▀ ▀▀▀ ░░▀░░ ▀░░▀ ░▀▀▀ ▀░▀▀ ▀░░▀ ▀░░▀ ░░▀░░ ▀▀▀ ▀▀▀
      """)
-    
+
 def exibir_opcoes():
     ''' Exibe as opções disponíveis no menu principal'''
 
@@ -85,12 +85,14 @@ def listar_restaurantes():
 
     exibir_subtitulo('Listando os restaurantes')
 
-    print(f"{'Nome do restaurante'.ljust(22)} | {'Categoria'.ljust(20)} | Status") #ljust alinha os texto em colunas com 20 espaços
+    print(f"{'Nome do restaurante'.ljust(22)} | {'Categoria'.ljust(20)} | Status")
+    #ljust alinha os texto em colunas com 20 espaços
     for restaurante in restaurantes:
         nome_restaurante = restaurante['nome']
         categoria = restaurante['categoria']
         ativo = 'ativado' if restaurante['ativo'] else 'desativado'
-        print(f'- {nome_restaurante.ljust(20)} | {categoria.ljust(20)} | {ativo}') #ljust alinha os texto em colunas com 20 espaços
+        print(f'- {nome_restaurante.ljust(20)} | {categoria.ljust(20)} | {ativo}')
+        #ljust alinha os texto em colunas com 20 espaços
 
     voltar_ao_menu_principal()
 
@@ -108,13 +110,14 @@ def alternar_estado_restaurante():
     for restaurante in restaurantes:
         if nome_restaurante == restaurante['nome']:
             restaurante_encontrado = True
-            restaurante['ativo'] = not restaurante['ativo'] # not inverter false pra true e vice-versa
+            restaurante['ativo'] = not restaurante['ativo']
+            # not inverter false pra true e vice-versa
             mensagem = f'O restaurante {nome_restaurante} foi ativado com sucesso' if restaurante['ativo'] else f'O restaurante {nome_restaurante} foi desativado com sucesso'
             print(mensagem)
-    
+
     if not restaurante_encontrado:
         print('O restaurante não foi encontrado')
-  
+
     voltar_ao_menu_principal()
 
 def escolher_opcao():
@@ -125,7 +128,7 @@ def escolher_opcao():
     '''
     try:
         opcao_escolhida = int(input('Escolha uma opção: '))
-        
+
         if opcao_escolhida == 1:
             cadastrar_novo_restaurante()
         elif opcao_escolhida == 2:
